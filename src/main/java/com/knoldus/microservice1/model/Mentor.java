@@ -1,41 +1,27 @@
 package com.knoldus.microservice1.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "mentors")
 public final class Mentor {
 
+    /**
+     * The Id of the mentor in the database
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer mentorId;
 
+    /**
+     * The Name of the mentor in the database
+     */
     @Column
     private String mentorName;
-    public Mentor(Integer mentorId, String mentorName) {
-        this.mentorId = mentorId;
-        this.mentorName = mentorName;
-    }
-
-    public Mentor() {
-    }
-
-    public Integer getMentorId() {
-        return mentorId;
-    }
-
-    public void setMentorId(Integer mentorId) {
-        this.mentorId = mentorId;
-    }
-
-    public String getMentorName() {
-        return mentorName;
-    }
-
-    public void setMentorName(String mentorName) {
-        this.mentorName = mentorName;
-    }
 }

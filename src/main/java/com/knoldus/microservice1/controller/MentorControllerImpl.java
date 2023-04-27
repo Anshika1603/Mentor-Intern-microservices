@@ -1,12 +1,21 @@
 package com.knoldus.microservice1.controller;
 
 import com.knoldus.microservice1.model.Mentor;
+import com.knoldus.microservice1.service.MentorService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-public interface MentorController {
+@RestController
+public class MentorControllerImpl implements MentorController {
+    /**
+     * The MentorController implements methods for accessing the Postgres database.
+     */
+    @Autowired
+    private MentorService mentorService;
 
     /**
      * Retrieves all Mentors from the Postgres database.
@@ -14,8 +23,10 @@ public interface MentorController {
      * @return a {@code ResponseEntity<List<Mentor>>} containing
      * a list of all Mentors and an HTTP status of 200 OK.
      */
-    @GetMapping("/getMentor")
-    ResponseEntity<List<Mentor>> getAllMentor();
+    public ResponseEntity<List<Mentor>> getAllMentor() {
+        List<Mentor> listOfMentor = mentorService.getAllMentor();
+        return new ResponseEntity<>(listOfMentor, HttpStatus.OK);
+    }
 
     /**
      * Retrieves an Mentor from the Postgres database by its ID.
@@ -25,8 +36,10 @@ public interface MentorController {
      * the retrieved Mentor and an HTTP status of 200 OK.
      * @throws com.knoldus.microservice1.exception.ResourceNotFoundException if the Mentor is not found in the database.
      */
-    @GetMapping("/getMentor/{id}")
-    ResponseEntity<Mentor> getMentorById(@PathVariable("id") final int id);
+    public ResponseEntity<Mentor> getMentorById(@PathVariable("id") final int id) {
+        Mentor mentor = mentorService.getMentorById(id);
+        return new ResponseEntity<>(mentor, HttpStatus.OK);
+    }
 
     /**
      * Creates a new Mentor in the Postgres database.
@@ -35,8 +48,10 @@ public interface MentorController {
      * @return a {@code ResponseEntity<Mentor>} containing
      * the created Mentor and an HTTP status of 201 CREATED.
      */
-    @PostMapping("/addMentor")
-    ResponseEntity<Mentor> addMentor(@RequestBody final Mentor mentor);
+    public ResponseEntity<Mentor> addMentor(@RequestBody final Mentor mentor) {
+        mentorService.addMentor(mentor);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
 
     /**
      * Updates an existing Mentor in the Postgres database.
@@ -45,8 +60,10 @@ public interface MentorController {
      * @return a {@code ResponseEntity<Mentor>} containing the
      * updated Mentor and an HTTP status of 200 OK.
      */
-    @PutMapping("/updateMentor/{id}")
-    ResponseEntity<Mentor> updateMentor(@RequestBody final Mentor mentor);
+    public ResponseEntity<Mentor> updateMentor(@RequestBody final Mentor mentor) {
+        mentorService.updateMentor(mentor);
+        return new ResponseEntity<>(mentor, HttpStatus.OK);
+    }
 
     /**
      * Deletes an existing Mentor
@@ -55,6 +72,8 @@ public interface MentorController {
      * @param id the ID of the Mentor to delete.
      * @return an HTTP status of 200 OK.
      */
-    @DeleteMapping("/deleteMentor/{id}")
-    ResponseEntity<Void> deleteEntity(@PathVariable final int id);
+    public ResponseEntity<Void> deleteEntity(@PathVariable final int id) {
+        mentorService.deleteMentor(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
