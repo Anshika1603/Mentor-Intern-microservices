@@ -1,10 +1,11 @@
-package com.knoldus.microservice1.serviceImpl;
+package com.knoldus.microservice1.serviceImpl.mentorserviceimpl;
 
 import com.knoldus.microservice1.exception.ResourceNotFoundException;
 import com.knoldus.microservice1.model.Mentor;
-import com.knoldus.microservice1.dao.PostgresDBRepository;
-import com.knoldus.microservice1.service.MentorService;
+import com.knoldus.microservice1.dao.MentorsDBRepository;
+import com.knoldus.microservice1.service.mentorservice.MentorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ import java.util.Optional;
 @Component
 public class MentorServiceImpl implements MentorService {
     @Autowired
-    private PostgresDBRepository postgresDBRepository;
+    private MentorsDBRepository postgresDBRepository;
 
     /**
      * Retrieves a list of all Mentor objects from the Postgres database.
@@ -34,10 +35,10 @@ public class MentorServiceImpl implements MentorService {
      *
      * @return the retrieved EntityModel object.
      * @throws ResourceNotFoundException if the Mentor
-     *                                   object is not found in the database.
+     * object is not found in the database.
      */
     @Override
-    public Mentor getMentorById(int mentorId) {
+    public Mentor getMentorById(final int mentorId) {
         Optional<Mentor> optionalMentor = postgresDBRepository.findById(mentorId);
         if (optionalMentor.isPresent()) {
             return optionalMentor.get();
@@ -63,11 +64,16 @@ public class MentorServiceImpl implements MentorService {
      * @param mentor the Mentor object to update.
      * @return the updated EntityModel object.
      * @throws ResourceNotFoundException if the Mentor
-     *                                   object is not found in the database.
+     * object is not found in the database.
      */
     @Override
-    public void updateMentor(Mentor mentor) {
-        postgresDBRepository.save(mentor);
+    public ResponseEntity<Mentor> updateMentor(final Integer targetID , Mentor updatedMentor) {
+        Optional<Mentor> optionalMentor = postgresDBRepository.findById(targetID);
+        if (optionalMentor.isPresent()) {
+          return ResponseEntity.ok(postgresDBRepository.save(updatedMentor));
+        } else {
+            throw new ResourceNotFoundException("Resource not Found");
+        }
     }
 
     /**
@@ -76,10 +82,19 @@ public class MentorServiceImpl implements MentorService {
      *
      * @param mentorId the ID of the Mentor object to delete.
      * @throws ResourceNotFoundException if the EntityModel
-     *                                   object is not found in the database.
+     * object is not found in the database.
      */
     @Override
-    public void deleteMentor(int mentorId) {
-        postgresDBRepository.delete(getMentorById(mentorId));
+     public   ResponseEntity<String> deleteMentor(int mentorId) {
+
+        Optional<Mentor>  mentor= postgresDBRepository.findById(mentorId);
+        if(mentor.isPresent()){
+            postgresDBRepository.delete(getMentorById(mentorId));
+           return ResponseEntity.ok("the object has been deleted "+mentorId);
+        }
+        else {
+            throw new ResourceNotFoundException("details not found on particular id ");
+        }
+
     }
 }

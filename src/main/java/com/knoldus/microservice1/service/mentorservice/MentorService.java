@@ -1,6 +1,7 @@
-package com.knoldus.microservice1.service;
+package com.knoldus.microservice1.service.mentorservice;
 
 import com.knoldus.microservice1.model.Mentor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public interface MentorService {
      * @param mentorId the ID of the Mentor object to retrieve
      * @return the Mentor object with the specified ID
      * @throws com.knoldus.microservice1.exception.ResourceNotFoundException if the Mentor object
-     *                                                                       with the specified ID is not found in the database
+     * with the specified ID is not found in the database
      */
     Mentor getMentorById(int mentorId);
 
@@ -36,12 +37,12 @@ public interface MentorService {
     /**
      * Updates the given Mentor object in the Postgres database.
      *
-     * @param mentor the Mentor object to be updated
+     * @param updatedMentor the Mentor object to be updated
      * @return the updated Mentor object
      * @throws com.knoldus.microservice1.exception.ResourceNotFoundException if the Mentor object
-     *                                                                       to be updated is not found in the database
+     * to be updated is not found in the database
      */
-    void updateMentor(Mentor mentor);
+    ResponseEntity<Mentor> updateMentor(final Integer targetID, Mentor updatedMentor);
 
     /**
      * Deletes the Mentor object with the specified ID
@@ -49,5 +50,8 @@ public interface MentorService {
      *
      * @param mentorId the ID of the Mentor object to delete
      */
-    void deleteMentor(int mentorId);
+
+    ResponseEntity<String> deleteMentor(int mentorId);
+
+
 }

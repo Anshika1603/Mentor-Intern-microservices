@@ -1,5 +1,6 @@
-package com.knoldus.microservice1.controller;
+package com.knoldus.microservice1.controller.mentorcontoller;
 
+import com.knoldus.microservice1.model.Interns;
 import com.knoldus.microservice1.model.Mentor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,7 @@ public interface MentorController {
      * @return a {@code ResponseEntity<List<Mentor>>} containing
      * a list of all Mentors and an HTTP status of 200 OK.
      */
+
     @GetMapping("/getMentor")
     ResponseEntity<List<Mentor>> getAllMentor();
 
@@ -25,6 +27,7 @@ public interface MentorController {
      * the retrieved Mentor and an HTTP status of 200 OK.
      * @throws com.knoldus.microservice1.exception.ResourceNotFoundException if the Mentor is not found in the database.
      */
+
     @GetMapping("/getMentor/{id}")
     ResponseEntity<Mentor> getMentorById(@PathVariable("id") final int id);
 
@@ -45,8 +48,9 @@ public interface MentorController {
      * @return a {@code ResponseEntity<Mentor>} containing the
      * updated Mentor and an HTTP status of 200 OK.
      */
+
     @PutMapping("/updateMentor/{id}")
-    ResponseEntity<Mentor> updateMentor(@RequestBody final Mentor mentor);
+    ResponseEntity<Mentor> updateMentor(@RequestBody final Mentor mentor, @PathVariable final Integer targetId);
 
     /**
      * Deletes an existing Mentor
@@ -55,6 +59,8 @@ public interface MentorController {
      * @param id the ID of the Mentor to delete.
      * @return an HTTP status of 200 OK.
      */
+
     @DeleteMapping("/deleteMentor/{id}")
-    ResponseEntity<Void> deleteEntity(@PathVariable final int id);
+    ResponseEntity<String> deleteMentor(@PathVariable final int id);
+
 }

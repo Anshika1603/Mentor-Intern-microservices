@@ -1,7 +1,8 @@
-package com.knoldus.microservice1.controller;
+package com.knoldus.microservice1.contollerImpl.mentorcontrollerimpl;
 
+import com.knoldus.microservice1.controller.mentorcontoller.MentorController;
 import com.knoldus.microservice1.model.Mentor;
-import com.knoldus.microservice1.service.MentorService;
+import com.knoldus.microservice1.service.mentorservice.MentorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -60,8 +61,8 @@ public class MentorControllerImpl implements MentorController {
      * @return a {@code ResponseEntity<Mentor>} containing the
      * updated Mentor and an HTTP status of 200 OK.
      */
-    public ResponseEntity<Mentor> updateMentor(@RequestBody final Mentor mentor) {
-        mentorService.updateMentor(mentor);
+    public ResponseEntity<Mentor> updateMentor(@RequestBody final Mentor mentor, @PathVariable final Integer id) {
+        mentorService.updateMentor(id, mentor);
         return new ResponseEntity<>(mentor, HttpStatus.OK);
     }
 
@@ -72,8 +73,9 @@ public class MentorControllerImpl implements MentorController {
      * @param id the ID of the Mentor to delete.
      * @return an HTTP status of 200 OK.
      */
-    public ResponseEntity<Void> deleteEntity(@PathVariable final int id) {
-        mentorService.deleteMentor(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+
+    public ResponseEntity<String> deleteMentor(@PathVariable final int id) {
+        return mentorService.deleteMentor(id);
     }
+
 }

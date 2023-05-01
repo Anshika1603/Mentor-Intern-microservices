@@ -1,22 +1,27 @@
 package com.knoldus.microservice1.model;
 
 import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "mentors")
+@Transactional
 public final class Mentor {
 
     /**
      * The Id of the mentor in the database
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer mentorId;
 
     /**
@@ -24,4 +29,13 @@ public final class Mentor {
      */
     @Column
     private String mentorName;
+
+    /**
+     * Intern Entity class
+     */
+
+    @OneToMany(mappedBy = "mentor", cascade = CascadeType.ALL)
+    private Set<Interns> interns = new HashSet<>();
+
+
 }
