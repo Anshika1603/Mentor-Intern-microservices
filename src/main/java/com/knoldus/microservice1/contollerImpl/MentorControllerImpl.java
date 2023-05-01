@@ -1,8 +1,8 @@
-package com.knoldus.microservice1.contollerImpl.mentorcontrollerimpl;
+package com.knoldus.microservice1.contollerImpl;
 
-import com.knoldus.microservice1.controller.mentorcontoller.MentorController;
+import com.knoldus.microservice1.controller.MentorController;
 import com.knoldus.microservice1.model.Mentor;
-import com.knoldus.microservice1.service.mentorservice.MentorService;
+import com.knoldus.microservice1.service.MentorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

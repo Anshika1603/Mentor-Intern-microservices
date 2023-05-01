@@ -1,9 +1,9 @@
-package com.knoldus.microservice1.serviceImpl.mentorserviceimpl;
+package com.knoldus.microservice1.serviceImpl;
 
 import com.knoldus.microservice1.exception.ResourceNotFoundException;
 import com.knoldus.microservice1.model.Mentor;
 import com.knoldus.microservice1.dao.MentorsDBRepository;
-import com.knoldus.microservice1.service.mentorservice.MentorService;
+import com.knoldus.microservice1.service.MentorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -95,6 +95,5 @@ public class MentorServiceImpl implements MentorService {
         else {
             throw new ResourceNotFoundException("details not found on particular id ");
         }
-
     }
 }

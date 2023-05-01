@@ -45,6 +45,4 @@ public class Interns {
     @Embedded
     private Address address;
 
-
-
 }

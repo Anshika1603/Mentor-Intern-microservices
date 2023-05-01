@@ -1,4 +1,4 @@
-package com.knoldus.microservice1.service.mentorservice;
+package com.knoldus.microservice1.service;
 
 import com.knoldus.microservice1.model.Mentor;
 import org.springframework.http.ResponseEntity;

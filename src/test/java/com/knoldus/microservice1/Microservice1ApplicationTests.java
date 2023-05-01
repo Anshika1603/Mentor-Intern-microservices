@@ -11,7 +11,7 @@ import com.knoldus.microservice1.exception.ResourceNotFoundException;
 import com.knoldus.microservice1.model.Address;
 import com.knoldus.microservice1.model.Interns;
 import com.knoldus.microservice1.model.Mentor;
-import com.knoldus.microservice1.serviceImpl.mentorserviceimpl.MentorServiceImpl;
+import com.knoldus.microservice1.serviceImpl.MentorServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

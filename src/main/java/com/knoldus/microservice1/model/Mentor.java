@@ -34,8 +34,8 @@ public final class Mentor {
      * Intern Entity class
      */
 
-    @OneToMany(mappedBy = "mentor", cascade = CascadeType.ALL)
-    private Set<Interns> interns = new HashSet<>();
-
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="Mentor_Fk", referencedColumnName = "mentorId")
+    private Set<Interns> interns;
 
 }

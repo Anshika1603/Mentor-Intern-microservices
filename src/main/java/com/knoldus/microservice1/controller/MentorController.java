@@ -1,4 +1,4 @@
-package com.knoldus.microservice1.controller.mentorcontoller;
+package com.knoldus.microservice1.controller;
 
 import com.knoldus.microservice1.model.Interns;
 import com.knoldus.microservice1.model.Mentor;
