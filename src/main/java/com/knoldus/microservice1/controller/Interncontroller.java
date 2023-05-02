@@ -10,7 +10,8 @@ import java.util.List;
 
 @RestController
 public interface Interncontroller {
-    @GetMapping("/getInterns/{mentorId}")
-    public ResponseEntity<List<Interns>> fetchAllInternswithMentorId(@PathVariable Integer mentorId);
+
+    @GetMapping("internfetch/{mentorId}")
+    public  List<Interns> findInternsByMentor(@PathVariable Integer mentorId);
 
 }

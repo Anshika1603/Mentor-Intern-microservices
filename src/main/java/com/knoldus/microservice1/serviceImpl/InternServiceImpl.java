@@ -15,20 +15,9 @@ public class InternServiceImpl implements InternService {
     @Autowired
     InternsRepository internsRepository;
 
+
     @Override
-    public List<Interns> fetchInternsByMentorId(Integer mentorId) {
-        List<Interns> interns = internsRepository.findInternById(mentorId);
-
-
-        //        if (interns.isPresent()) {
-//            return interns.get();
-//        }
-//        else{
-//            throw new ResourceNotFoundException("Cannot find Id in the Database");
-//        }
-
-
-        return interns;
+    public List<Interns> findInternsByMentor(Integer mentorId) {
+        return internsRepository.findInternsByMentor(mentorId);
     }
-
 }

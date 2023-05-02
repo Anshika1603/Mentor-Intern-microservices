@@ -7,6 +7,5 @@ import java.util.List;
 
 @Service
 public interface InternService {
-
-    List<Interns> fetchInternsByMentorId(Integer mentorId);
+   public  List<Interns> findInternsByMentor(Integer mentorId);
 }
