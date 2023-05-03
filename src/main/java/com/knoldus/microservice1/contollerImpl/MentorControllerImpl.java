@@ -25,7 +25,7 @@ public class MentorControllerImpl implements MentorController {
      * a list of all Mentors and an HTTP status of 200 OK.
      */
     public ResponseEntity<List<Mentor>> getAllMentor() {
-        List<Mentor> listOfMentor = mentorService.getAllMentor();
+        List<Mentor> listOfMentor = mentorService.findAllMentors();
         return new ResponseEntity<>(listOfMentor, HttpStatus.OK);
     }
 

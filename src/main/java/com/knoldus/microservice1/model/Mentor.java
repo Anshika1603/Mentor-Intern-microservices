@@ -37,5 +37,4 @@ public final class Mentor {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="Mentor_Fk", referencedColumnName = "mentorId")
     private Set<Interns> interns;
-
 }

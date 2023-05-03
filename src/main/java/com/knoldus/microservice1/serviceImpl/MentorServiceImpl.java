@@ -22,11 +22,16 @@ public class MentorServiceImpl implements MentorService {
      *
      * @return a List of Mentor objects.
      */
+//    @Override
+//    public List<Mentor> getAllMentor() {
+//        List<Mentor> listOfMentor = new ArrayList<>();
+//        postgresDBRepository.findAll().forEach(listOfMentor::add);
+//        return listOfMentor;
+//    }
+
     @Override
-    public List<Mentor> getAllMentor() {
-        List<Mentor> listOfMentor = new ArrayList<>();
-        postgresDBRepository.findAll().forEach(listOfMentor::add);
-        return listOfMentor;
+    public List<Mentor> findAllMentors() {
+        return postgresDBRepository.findAllMentors();
     }
 
     /**
@@ -85,9 +90,9 @@ public class MentorServiceImpl implements MentorService {
      * object is not found in the database.
      */
     @Override
-     public   ResponseEntity<String> deleteMentor(int mentorId) {
+     public ResponseEntity<String> deleteMentor(int mentorId) {
 
-        Optional<Mentor>  mentor= postgresDBRepository.findById(mentorId);
+        Optional<Mentor> mentor= postgresDBRepository.findById(mentorId);
         if(mentor.isPresent()){
             postgresDBRepository.delete(getMentorById(mentorId));
            return ResponseEntity.ok("the object has been deleted "+mentorId);
@@ -96,4 +101,5 @@ public class MentorServiceImpl implements MentorService {
             throw new ResourceNotFoundException("details not found on particular id ");
         }
     }
+
 }

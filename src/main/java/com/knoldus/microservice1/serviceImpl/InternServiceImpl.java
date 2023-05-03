@@ -3,6 +3,7 @@ package com.knoldus.microservice1.serviceImpl;
 import com.knoldus.microservice1.dao.InternsRepository;
 import com.knoldus.microservice1.exception.ResourceNotFoundException;
 import com.knoldus.microservice1.model.Interns;
+import com.knoldus.microservice1.model.Mentor;
 import com.knoldus.microservice1.service.InternService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

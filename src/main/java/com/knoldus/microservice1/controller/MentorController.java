@@ -17,7 +17,7 @@ public interface MentorController {
      */
 
     @GetMapping("/getMentor")
-    ResponseEntity<List<Mentor>> getAllMentor();
+    ResponseEntity<List<Mentor>> findAllMentors();
 
     /**
      * Retrieves an Mentor from the Postgres database by its ID.

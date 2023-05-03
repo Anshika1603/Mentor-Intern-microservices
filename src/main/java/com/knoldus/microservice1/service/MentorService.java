@@ -13,7 +13,8 @@ public interface MentorService {
      *
      * @return a List of all Mentor objects stored in the Postgres database
      */
-    List<Mentor> getAllMentor();
+//    List<Mentor> getAllMentor();
+    public List<Mentor> findAllMentors();
 
     /**
      * Returns the Mentor object with the specified
