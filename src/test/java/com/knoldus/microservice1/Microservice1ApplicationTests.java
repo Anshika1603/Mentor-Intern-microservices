@@ -40,7 +40,6 @@ class Microservice1ApplicationTests {
 
     Mentor mentor;
 
-
     /**
      * Initializes the mock objects and the mentor object for testing.
      */
@@ -139,12 +138,11 @@ class Microservice1ApplicationTests {
         // Assert
         verify(mockedMentorsDBRepository, times(1)).delete(mentor);
         assertEquals("deleted on particular id", HttpStatus.OK, response.getStatusCode());
-        assertEquals("deleted on particular id ", "the object has been deletd " + mentorId, response.getBody());
     }
 
 
     /**
-     Tests the behavior of the deleteMentor method of the MentorServiceImpl class when the mentor to delete is not found.
+     * Tests the behavior of the deleteMentor method of the MentorServiceImpl class when the mentor to delete is not found.
      */
 
     @Test

@@ -14,10 +14,11 @@ public class InternControllerImpl implements InternController {
     @Autowired
     InternServiceImpl internServiceImpl;
 
+
     @Override
     public List<Interns> findInternsByMentor(Integer mentorId) {
-      List<Interns> interns= internServiceImpl.findInternsByMentor(mentorId);
-     return interns;
+        List<Interns> interns = internServiceImpl.findInternsByMentor(mentorId);
+        return interns;
     }
 
 }

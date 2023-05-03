@@ -24,10 +24,11 @@ public class MentorControllerImpl implements MentorController {
      * @return a {@code ResponseEntity<List<Mentor>>} containing
      * a list of all Mentors and an HTTP status of 200 OK.
      */
-    public ResponseEntity<List<Mentor>> getAllMentor() {
+    public ResponseEntity<List<Mentor>> findAllMentors() {
         List<Mentor> listOfMentor = mentorService.findAllMentors();
         return new ResponseEntity<>(listOfMentor, HttpStatus.OK);
     }
+
 
     /**
      * Retrieves an Mentor from the Postgres database by its ID.
