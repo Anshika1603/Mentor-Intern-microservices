@@ -1,4 +1,4 @@
-package com.knoldus.microservice1.contollerImpl;
+package com.knoldus.microservice1.controller.impl;
 
 import com.knoldus.microservice1.controller.MentorController;
 import com.knoldus.microservice1.model.Mentor;
@@ -78,5 +78,4 @@ public class MentorControllerImpl implements MentorController {
     public ResponseEntity<String> deleteMentor(@PathVariable final int id) {
         return mentorService.deleteMentor(id);
     }
-
 }

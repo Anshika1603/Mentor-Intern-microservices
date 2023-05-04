@@ -3,7 +3,7 @@ package com.knoldus.microservice1;
 import com.knoldus.microservice1.dao.InternsRepository;
 import com.knoldus.microservice1.model.Address;
 import com.knoldus.microservice1.model.Interns;
-import com.knoldus.microservice1.serviceImpl.InternServiceImpl;
+import com.knoldus.microservice1.service.impl.InternServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

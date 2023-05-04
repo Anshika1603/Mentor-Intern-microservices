@@ -1,4 +1,4 @@
-package com.knoldus.microservice1.payload;
+package com.knoldus.microservice1.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

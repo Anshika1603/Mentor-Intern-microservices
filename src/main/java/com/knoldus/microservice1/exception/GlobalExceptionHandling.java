@@ -1,6 +1,6 @@
 package com.knoldus.microservice1.exception;
 
-import com.knoldus.microservice1.payload.ApiResponse;
+import com.knoldus.microservice1.model.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

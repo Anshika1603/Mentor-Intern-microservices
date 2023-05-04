@@ -1,4 +1,4 @@
-package com.knoldus.microservice1.serviceImpl;
+package com.knoldus.microservice1.service.impl;
 
 import com.knoldus.microservice1.exception.ResourceNotFoundException;
 import com.knoldus.microservice1.model.Mentor;
