@@ -3,6 +3,7 @@ package com.knoldus.MentorService.controller;
 import com.knoldus.MentorService.model.Interns;
 import com.knoldus.MentorService.model.Mentor;
 import com.knoldus.MentorService.service.MentorService;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,7 @@ public class MentorController {
     @Autowired
     MentorService mentorService;
 
-    @GetMapping("/getInterns/{id}")
+    @GetMapping("/getInternsByMentorId/{id}")
     public ResponseEntity<List<Interns>> fetchAllInternswithMentorId(@PathVariable("id") Integer mentorId) {
         return ResponseEntity.ok(mentorService.fetchInternsByMentorId(mentorId));
     }
@@ -36,7 +37,19 @@ public class MentorController {
     }
 
     @DeleteMapping("/deleteMentor/{id}")
-    public ResponseEntity<String> deleteMentor(@PathVariable final Integer id){
-        return ResponseEntity.ok(mentorService.deleteMentor(id));
+    public ResponseEntity<String> deleteMentor(@PathVariable("id") final Integer id){
+        String deleteResponse = String.valueOf(mentorService.deleteMentor(id));
+        return ResponseEntity.ok(deleteResponse);
+    }
+
+    @DeleteMapping("/deleteIntern/{id}")
+    public ResponseEntity<String> deleteIntern(@PathVariable("id") final Integer id){
+        String deleteResponse = String.valueOf(mentorService.deleteIntern(id));
+        return ResponseEntity.ok(deleteResponse);
+    }
+
+    @GetMapping("/getInternById/{internId}")
+    public ResponseEntity<Interns> getInternById(@PathVariable("internId") final Integer id){
+        return ResponseEntity.ok(mentorService.getInternById(id));
     }
 }
