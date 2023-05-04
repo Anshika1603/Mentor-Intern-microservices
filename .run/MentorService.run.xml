@@ -1,8 +1,9 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="MentorService" type="Application" factoryName="Application" singleton="false">
-    <option name="ALTERNATIVE_JRE_PATH" value="17" />
+    <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/corretto-17.0.6" />
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <option name="MAIN_CLASS_NAME" value="com.knoldus.MentorService.MentorServiceApplication" />
+    <module name="MentorService" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
