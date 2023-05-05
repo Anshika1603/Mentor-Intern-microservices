@@ -27,13 +27,11 @@ public class Interns {
     /**
      * The name of the intern.
      */
-
     private String name;
 
     /**
      * The phone number of the intern.
      */
-
     Integer phoneNumber;
 
 

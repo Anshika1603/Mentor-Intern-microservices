@@ -20,13 +20,10 @@ public class Address {
     /**
      * The name of the city where the address is located.
      */
-
     private String cityName;
 
     /**
      * The sector of the address.
      */
     private String sector;
-
-
 }

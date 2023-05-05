@@ -6,8 +6,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+/**
+ * A class that handles global exception handling for all REST controllers in the application.
+ */
 @RestControllerAdvice
 public class GlobalExceptionHandling {
+    /**
+     * Handles the ResourceNotFoundException globally.
+     * @param resourceNotFoundException the ResourceNotFoundException object
+     * @return a ResponseEntity object with an error message and HTTP status code
+     */
     @ExceptionHandler(value = ResourceNotFoundException.class)
     public ResponseEntity<Object> handlerResourceNotFoundException(ResourceNotFoundException resourceNotFoundException) {
         String message = resourceNotFoundException.getMessage();
