@@ -66,7 +66,7 @@ public class MentorServiceImpl implements MentorService {
     /**
      * Updates a Mentor object in the Postgres database.
      *
-     * @param mentor the Mentor object to update.
+     * @param updatedMentor the Mentor object to update.
      * @return the updated EntityModel object.
      * @throws ResourceNotFoundException if the Mentor
      * object is not found in the database.

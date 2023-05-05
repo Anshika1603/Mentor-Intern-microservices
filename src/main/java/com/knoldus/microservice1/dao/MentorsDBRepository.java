@@ -7,10 +7,18 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Repository interface for managing Mentor data in the database.
+ */
 @Repository
 public interface MentorsDBRepository extends JpaRepository<Mentor, Integer> {
 
-    @Query("SELECT m FROM Mentor m LEFT JOIN FETCH m.interns")
+    /**
+     * This method returns a list of all the mentors.
+     *
+     * @return a list of mentors.
+     */
+    @Query("SELECT * from mentors")
     List<Mentor> findAllMentors();
 
 }

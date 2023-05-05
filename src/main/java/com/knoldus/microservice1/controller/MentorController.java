@@ -59,7 +59,6 @@ public interface MentorController {
      * @param id the ID of the Mentor to delete.
      * @return an HTTP status of 200 OK.
      */
-
     @DeleteMapping("/deleteMentor/{id}")
     ResponseEntity<String> deleteMentor(@PathVariable final int id);
 

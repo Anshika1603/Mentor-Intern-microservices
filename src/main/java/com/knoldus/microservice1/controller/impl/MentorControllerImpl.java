@@ -12,9 +12,7 @@ import java.util.List;
 
 @RestController
 public class MentorControllerImpl implements MentorController {
-    /**
-     * The MentorController implements methods for accessing the Postgres database.
-     */
+
     @Autowired
     private MentorService mentorService;
 
@@ -74,7 +72,6 @@ public class MentorControllerImpl implements MentorController {
      * @param id the ID of the Mentor to delete.
      * @return an HTTP status of 200 OK.
      */
-
     public ResponseEntity<String> deleteMentor(@PathVariable final int id) {
         return mentorService.deleteMentor(id);
     }

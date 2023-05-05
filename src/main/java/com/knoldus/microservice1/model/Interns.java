@@ -21,28 +21,22 @@ public class Interns {
     /**
      * The ID of the intern.
      */
-
     @Id
     private Integer internId;
 
     /**
      * The name of the intern.
      */
-
     private String name;
 
     /**
      * The phone number of the intern.
      */
-
     Integer phoneNumber;
-
 
     /**
      * The address of the intern.
      */
-
     @Embedded
     private Address address;
-
 }

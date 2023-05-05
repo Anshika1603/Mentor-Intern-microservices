@@ -31,9 +31,13 @@ public final class Mentor {
     private String mentorName;
 
     /**
-     * Intern Entity class
+     * A set of Interns associated with a Mentor.
+     * This field represents a one-to-many relationship between a Mentor and a set of Interns.
+     * The cascade attribute specifies that any changes made to a Mentor object will be cascaded
+     * to the associated Interns objects, allowing for easy synchronization of changes in the database.
+     * The JoinColumn annotation specifies the column name of the foreign key in the Interns table
+     * that references the primary key of the Mentor table.
      */
-
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="Mentor_Fk", referencedColumnName = "mentorId")
     private Set<Interns> interns;

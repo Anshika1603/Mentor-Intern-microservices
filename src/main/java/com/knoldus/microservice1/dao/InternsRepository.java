@@ -11,7 +11,6 @@ import java.util.List;
 /**
  * Repository interface for managing Interns data in the database.
  */
-
 @Repository
 public interface InternsRepository extends JpaRepository<Interns, Integer> {
 
@@ -21,8 +20,6 @@ public interface InternsRepository extends JpaRepository<Interns, Integer> {
      * @param mentorId the ID of the Mentor
      * @return a list of Interns associated with the specified Mentor
      */
-
-
     @Query(
             value = "select * from interns s where s.mentor_fk = ?",
             nativeQuery = true

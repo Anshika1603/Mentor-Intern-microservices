@@ -27,12 +27,16 @@ public class InternServiceImpl implements InternService {
      * @param mentorId the ID of the Mentor
      * @return a list of Interns associated with the specified Mentor
      */
-
     @Override
     public List<Interns> findInternsByMentor(Integer mentorId) {
         return internsRepository.findInternsByMentor(mentorId);
     }
-
+    /**
+    * Gets an Intern by its ID.
+    * @param internId the ID of the Intern
+    * @return the Intern with the specified ID
+    * @throws ResourceNotFoundException if an Intern with the specified ID is not found
+     */
     @Override
     public Interns getInternById(Integer internId) {
         Optional<Interns> optionalInterns = internsRepository.findById(internId);
@@ -43,6 +47,12 @@ public class InternServiceImpl implements InternService {
         }
     }
 
+    /**
+     Deletes an Intern by its ID.
+     @param internId the ID of the Intern
+     @return a response entity with the status message
+     @throws ResourceNotFoundException if an Intern with the specified ID is not found
+     */
     @Override
     public ResponseEntity<String> deleteIntern(int internId){
         Optional<Interns> interns= internsRepository.findById(internId);

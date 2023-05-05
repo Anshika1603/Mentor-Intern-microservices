@@ -19,6 +19,11 @@ public class InternControllerImpl implements InternController {
 
     private static final Logger logger = LoggerFactory.getLogger(InternControllerImpl.class);
 
+    /**
+     * Finds a list of interns by mentor id.
+     * @param mentorId the mentor id to search interns for.
+     * @return a List of Interns objects.
+     */
     @Override
     public List<Interns> findInternsByMentor(Integer mentorId) {
         logger.info("Finding interns by mentorId: {}", mentorId);
@@ -27,6 +32,11 @@ public class InternControllerImpl implements InternController {
         return interns;
     }
 
+    /**
+     * Deletes an intern with the given intern id.
+     * @param internId the id of the intern to be deleted.
+     * @return a ResponseEntity object with status 200 and a message if successful, or a message and status 404 if not found.
+     */
     @Override
     public ResponseEntity<String> deleteIntern(@PathVariable final int internId) {
         logger.info("Deleting intern with internId: {}", internId);
@@ -35,6 +45,11 @@ public class InternControllerImpl implements InternController {
         return response;
     }
 
+    /**
+     * Finds an intern by id.
+     * @param internId the id of the intern to be found.
+     * @return an Interns object if found, or null if not found.
+     */
     @Override
     public Interns getInternById(@PathVariable final Integer internId) {
         logger.info("Finding intern by internId: {}", internId);
@@ -42,5 +57,4 @@ public class InternControllerImpl implements InternController {
         logger.info("Found intern: {}", intern);
         return intern;
     }
-
 }
