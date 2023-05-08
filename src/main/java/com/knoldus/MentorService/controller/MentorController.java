@@ -28,8 +28,8 @@ public class MentorController {
      * @param mentorId The ID of the mentor whose interns are to be fetched.
      * @return A ResponseEntity containing a List of Interns associated with the given Mentor ID.
      */
-    @GetMapping("/getInterns/{id}")
-    public ResponseEntity<List<Interns>> fetchAllInternswithMentorId(@PathVariable("id") Integer mentorId) {
+    @GetMapping("/getInternsByMentorId/{mentorId}")
+    public ResponseEntity<List<Interns>> fetchAllInternswithMentorId(@PathVariable("mentorId") Integer mentorId) {
         logger.debug("Fetching interns for mentor with ID: {}", mentorId);
         List<Interns> interns = mentorService.fetchInternsByMentorId(mentorId);
         logger.info("Found {} interns for mentor with ID: {}", interns.size(), mentorId);

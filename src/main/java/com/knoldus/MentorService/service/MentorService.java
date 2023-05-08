@@ -26,7 +26,7 @@ public class MentorService {
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         HttpEntity<Interns> entity = new HttpEntity<Interns>(headers);
-        return restTemplate.exchange("http://localhost:8081/internfetch/"+mentorId, HttpMethod.GET, entity, List.class).getBody();
+        return restTemplate.exchange("http://localhost:8081/findInternsByMentorId/"+mentorId, HttpMethod.GET, entity, List.class).getBody();
     }
 
     /**
