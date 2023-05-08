@@ -38,7 +38,7 @@ public class InternControllerImpl implements InternController {
      * @return a ResponseEntity object with status 200 and a message if successful, or a message and status 404 if not found.
      */
     @Override
-    public ResponseEntity<String> deleteIntern(@PathVariable final int internId) {
+    public ResponseEntity<String> deleteIntern(@PathVariable int internId) {
         logger.info("Deleting intern with internId: {}", internId);
         ResponseEntity<String> response = internService.deleteIntern(internId);
         logger.info("Response from deleteIntern: {}", response);

@@ -22,8 +22,8 @@ public interface InternController {
      * @param internId the ID of the Intern to be deleted
      * @return a ResponseEntity with a message indicating success or failure
      */
-    @DeleteMapping("deleteIntern/{Id}")
-    ResponseEntity<String> deleteIntern(@PathVariable("Id") final int internId);
+    @DeleteMapping("deleteIntern/{internId}")
+    ResponseEntity<String> deleteIntern(@PathVariable("internId") int internId);
 
     /**
      * Retrieves the Intern record with the given ID.

@@ -18,7 +18,7 @@ public interface MentorsDBRepository extends JpaRepository<Mentor, Integer> {
      *
      * @return a list of mentors.
      */
-    @Query("SELECT * from mentors")
+    @Query("select m from Mentor m")
     List<Mentor> findAllMentors();
 
 }
